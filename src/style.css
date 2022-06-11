@@ -1,0 +1,94 @@
+.nav {
+  display: flex;
+  flex-direction: row;
+}
+
+.navLinks {
+  align-items: right;
+  padding-top: 1.5vw;
+  padding-left: 70vw;
+  font-size: x-large;
+  display: flex;
+  flex-direction: row;
+  gap: 1vw;
+}
+
+.kanyeHeadImage {
+  width: 7vw;
+}
+
+html {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+.dollarInput,
+.inputWrapper {
+  display: inline-block;
+}
+.inputWrapper {
+  margin-right: 2vw;
+}
+.consoleInput {
+  border: 0;
+  width: 380%;
+  background-color: #000;
+  color: #98fc83;
+  font-family: "Lucida Console", "Courier New", monospace;
+  font-size: 1vw;
+}
+.consoleInput:focus {
+  outline: none;
+}
+.terminal {
+  vertical-align: top;
+  height: 28vw;
+  width: 65vw;
+  background-color: #000;
+  overflow-y: scroll;
+  font-family: "Lucida Console", "Courier New", monospace;
+  color: #98fc83;
+  border-radius: 0 0 1vw 1vw;
+  box-shadow: 0, 0, 1vw 1vw #3d208a;
+}
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+html {
+  background-color: #40b16d;
+}
+.topbar {
+  color: #dcdcdc;
+  background-color: #242429;
+  margin-bottom: -1vw;
+  width: 65vw;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  border-radius: 1vw 1vw 0 0;
+  padding-top: 0.4vw;
+}
+.minimise {
+  text-align: right;
+  margin-top: -1vw;
+  margin-right: 1vw;
+  padding-bottom: 0.3vw;
+}
+.link {
+  color: #83aefc;
+}
+
+.consoleContainer {
+  margin-top: -30.5vw;
+  margin-left: 27vw;
+  margin-right: 2vw;
+}
+
+iframe {
+  border-radius: 12px;
+}
+
+.kanyeYoungImage {
+  border-radius: 50%;
+  width: 17vw;
+}
