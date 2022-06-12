@@ -2,14 +2,29 @@ import { useState, useRef, useEffect } from "react";
 import commands from "../utils/interfaces";
 import FocusLock from "react-focus-lock";
 
+interface Quote {
+  quote: string;
+}
+
 export default function Console(): JSX.Element {
   const [log, setLog] = useState<JSX.Element[]>([
     <p key="start">
-      I am KanyeBot - type <b>help</b> for a list of supported commands
+      I am KanyeBot - type <b>help</b> to see a list of supported commands
     </p>,
   ]);
   const [input, setInput] = useState<string>("");
   const bottomRef = useRef<null | HTMLDivElement>(null);
+  const [quote, setQuote] = useState<string>("");
+  const [triggerGetNewQuote, setTriggerGetNewQuote] = useState<boolean>(false);
+
+  useEffect(() => {
+    async function fetchQuote() {
+      const rawQuoteData = await fetch("https://api.kanye.rest/");
+      const jsonQuoteData: Quote = await rawQuoteData.json();
+      setQuote(jsonQuoteData.quote);
+    }
+    fetchQuote();
+  }, [triggerGetNewQuote]);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView();
@@ -21,186 +36,93 @@ export default function Console(): JSX.Element {
       response: (
         <p>
           supported commands:{" "}
-          <b>wisdom, favourite film, education, portfolio</b>
+          <b>
+            wisdom, favourite film, best music video of all time, legal name,
+            spirited away vs akira
+          </b>
         </p>
       ),
     },
 
     {
-      command: "about",
+      command: "best music video of all time",
       response: (
         <p>
-          Hey wanderer👋
-          <br></br>
-          <br></br>
-          My name's <b>Saj</b> and I'm a trainee fullstack software engineer👨‍💻.
-          I am a scholar on{" "}
-          <b>
-            <a
-              className="link"
-              href="https://academy.tech/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Academy's
-            </a>
-          </b>{" "}
-          Tech Leadership graduate scheme. <br></br>
-          <br></br> Over the past 4 months, I've been building projects and
-          learning <b>React</b>, <b>TypeScript</b>, <b>Express</b>,{" "}
-          <b>Postgresql</b> and <b>JavaScript</b>. Feel free to reach out to me
-          on{" "}
           <a
             target="_blank"
             rel="noreferrer"
-            href="https://www.linkedin.com/in/sajjan-sivia-212647192/"
+            href="https://www.youtube.com/watch?v=1z8gCZ7zpsQ&ab_channel=ArtisanNewsService"
             className="link"
           >
-            LinkedIn!
+            Beyonce - Single Ladies
           </a>
         </p>
       ),
     },
     {
-      command: "experience",
+      command: "wisdom",
       response: (
         <p>
-          {" "}
-          <b>Academy, Feb 2022 - Present</b>
-          <br></br>- 4 month highly-selective grant funded programme with less
-          than a 1% acceptance rate, funded by <b>LocalGlobe</b>
-          <br></br>- Built fullstack projects in agile teams using TypeScript,
-          React, Node.js, SQL, Express, Jest and Cypress
+          {quote} <br></br>
           <br></br>
-          <br></br>
-          <b>Xceptor, Nov 2021 - Feb 2022</b>
-          <br></br>- delivered data automation projects for <b>J.P. Morgan</b>,{" "}
-          <b>Citi</b> and <b>Schroders</b>
-          <br></br>- worked in Agile teams using <b>C#</b>, <b>XML</b> and{" "}
-          <b>SQL</b> to configure products to client needs
-          <br></br>
-          <br></br>
-          <b>Quo Vadis, Oct 2021 - Nov 2021</b>
-          <br></br>- worked 12 hour night shifts as the receptionist of a lively
-          restaurant/bar
-          <br></br>- befriended the <b>director of Mr Bean's Holiday</b>
-          <br></br>
-          <br></br>
-          <b>Design and Artist's Copyright Society, Oct 2020 - Jan 2021</b>
-          <br></br>- produced report on tech-driven change in the art market for
-          the UK’s largest artists’ rights organisation
-          <br></br>- predicted the <b>NFT boom</b> and influenced the
-          organisation to research their effects on artists’ rights
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://kanye.rest/"
+            className="link"
+          >
+            Source
+          </a>
         </p>
       ),
     },
     {
-      command: "education",
+      command: "favourite film",
       response: (
         <p>
-          <b>
-            University College London (UCL) BASc - Politics and Mathematics with
-            Arabic
-          </b>
+          Akira and There Will be Blood are equally my 2 favourite movies of all
+          time.
+          <br></br>
+          <br></br>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://pbs.twimg.com/media/DiafHdDWsAEkRgK.jpg"
+            className="link"
+          >
+            Source
+          </a>
         </p>
       ),
     },
     {
-      command: "portfolio",
+      command: "spirited away vs akira",
       response: (
         <p>
-          <a
-            className="link"
-            target="_blank"
-            href="https://saj-zeri-patelman-dogvotes.netlify.app/"
-            rel="noreferrer"
-          >
-            <b>Dog Voting App</b>
-          </a>
-          <br></br> -a fullstack app to vote for your favourite dog breeds{" "}
-          <br></br>
-          -built using Postgres, Express, React, TypeScript, Cypress, Jest, HTML
-          and CSS
-          <br></br> -built REST API, database and interacted with a public API
-          <br></br>-{" "}
-          <a
-            className="link"
-            target="_blank"
-            rel="noreferrer"
-            href="https://github.com/sajsiv/DogBreedFrontend"
-          >
-            Frontend GitHub
-          </a>
-          ,
-          <a
-            className="link"
-            target="_blank"
-            rel="noreferrer"
-            href="https://github.com/roshnihpatel/Dog-Breed-Voting-Backend"
-          >
-            Backend GitHub
-          </a>
+          No way Spirited Away is better than Akira... NOOO WAAAY... sorry was
+          just looking at a youtube of top 10 anime films
           <br></br>
           <br></br>
           <a
-            className="link"
             target="_blank"
-            href="https://incredible-kulfi-5ae6a9.netlify.app/"
             rel="noreferrer"
+            href="https://i.imgur.com/1T3BSmf.jpeg"
+            className="link"
           >
-            <b>Pastebin App</b>
+            Source
           </a>
-          <br></br> -an fullstack app to save pieces of text and code<br></br>
-          -built using Postgres, Express, React, TypeScript, HTML and CSS
-          <br></br>-{" "}
-          <a
-            className="link"
-            target="_blank"
-            rel="noreferrer"
-            href="https://github.com/sajsiv/pastebin-frontend/"
-          >
-            Frontend GitHub
-          </a>
-          ,{" "}
-          <a
-            className="link"
-            target="_blank"
-            rel="noreferrer"
-            href="https://github.com/arshaikhh/pastebin-team"
-          >
-            Backend GitHub
-          </a>
-          <br></br>
-          <br></br>
-          <a
-            className="link"
-            target="_blank"
-            href="https://linear-binary-search.netlify.app/"
-            rel="noreferrer"
-          >
-            <b>Linear and Binary Search</b>
-          </a>
-          <br></br> -an small app I built to demonstrate the speed of different
-          search algorithms in an workshop I hosted<br></br>
-          -built using React, TypeScript, HTML and CSS
-          <br></br>-{" "}
-          <a
-            className="link"
-            target="_blank"
-            rel="noreferrer"
-            href="https://github.com/sajsiv/Linear-and-Binary-Search-Demo-Website"
-          >
-            GitHub
-          </a>{" "}
-          <br></br> -{" "}
-          <a
-            className="link"
-            target="_blank"
-            rel="noreferrer"
-            href="https://www.youtube.com/watch?v=6_ipZYav8zY&ab_channel=saj-dev"
-          >
-            Here's a link to the workshop!
-          </a>
+        </p>
+      ),
+    },
+    {
+      command: "legal name",
+      response: (
+        <p>
+          In 2021, I changed my legal name from “Kanye Omari West” to simply
+          “Ye”. In a 2018 interview, I said “I believe ‘ye’ is the most commonly
+          used word in the Bible. In the Bible it means you. So, I’m you. I’m
+          us. It’s us. It went from being Kanye, which means the only one, to
+          just Ye.”
         </p>
       ),
     },
@@ -238,6 +160,8 @@ export default function Console(): JSX.Element {
   };
 
   const createLogValue = (terminalInput: string) => {
+    if (terminalInput.toLowerCase() === "wisdom")
+      setTriggerGetNewQuote(!triggerGetNewQuote);
     const response = commandsResponses.find(
       (element) => element.command === terminalInput.toLowerCase()
     )?.response;
