@@ -8,4 +8,4 @@ I utilised the <a href="https://kanye.rest/"> kanye.rest API</a> to give random 
 
 # WARNING
 
-The terminal may product innapropriate responses since the quotes on the <a href="https://kanye.rest/"> kanye.rest API</a> are occassionally inappropriate
+The terminal may product innapropriate responses a small proportion of the quotes on the <a href="https://kanye.rest/"> kanye.rest API</a> are inappropriate
