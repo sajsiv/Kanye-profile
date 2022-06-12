@@ -37,8 +37,12 @@ export default function Console(): JSX.Element {
         <p>
           supported commands:{" "}
           <b>
-            wisdom, favourite film, best music video of all time, legal name,
-            spirited away vs akira
+            <br></br>
+            -wisdom<br></br>
+            -favourite film<br></br>
+            -best music video of all time<br></br>
+            -legal name<br></br>
+            -spirited away vs akira
           </b>
         </p>
       ),
