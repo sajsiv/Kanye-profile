@@ -1,10 +1,11 @@
 import { useState, useRef, useEffect } from "react";
 import commands from "../utils/interfaces";
+import FocusLock from "react-focus-lock";
 
 export default function Console(): JSX.Element {
   const [log, setLog] = useState<JSX.Element[]>([
     <p key="start">
-      Welcome to saj-dev - type <b>help</b> for a list of supported commands
+      I am KanyeBot - type <b>help</b> for a list of supported commands
     </p>,
   ]);
   const [input, setInput] = useState<string>("");
@@ -19,7 +20,8 @@ export default function Console(): JSX.Element {
       command: "help",
       response: (
         <p>
-          supported commands: <b>about, experience, education, portfolio</b>
+          supported commands:{" "}
+          <b>wisdom, favourite film, education, portfolio</b>
         </p>
       ),
     },
@@ -253,21 +255,23 @@ export default function Console(): JSX.Element {
           </p>,
         ]);
   };
-
+  console.log(input);
   return (
     <>
       <p className="topbar">
-        Terminal <p className="minimise">- ◰ x</p>
+        KanyeBot <p className="minimise">- ◰ x</p>
       </p>
       <div className="terminal">
         {log}
         <p className="dollarInput">→$</p>
-        <input
-          className="consoleInput"
-          value={input}
-          onKeyDown={(e) => handleEnter(e)}
-          onChange={(e) => setInput(e.target.value)}
-        ></input>
+        <FocusLock className="inputWrapper">
+          <input
+            className="consoleInput"
+            value={input}
+            onKeyDown={(e) => handleEnter(e)}
+            onChange={(e) => setInput(e.target.value)}
+          ></input>
+        </FocusLock>
         <div ref={bottomRef} />
       </div>
     </>
