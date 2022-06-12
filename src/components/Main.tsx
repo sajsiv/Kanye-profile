@@ -46,8 +46,8 @@ export default function Main(): JSX.Element {
               designer
             </h2>
             <h3>
-              Read about my life, listen to my music <br></br> and talk to me on
-              this website. <br></br>
+              Read about my life, listen to my music <br></br> and talk to
+              KanyeBot on this website. <br></br>
             </h3>
           </div>
           <img
