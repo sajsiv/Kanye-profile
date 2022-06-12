@@ -181,7 +181,7 @@ export default function Console(): JSX.Element {
   };
   console.log(input);
   return (
-    <>
+    <div className="terminalContainer">
       <p className="topbar">
         KanyeBot <p className="minimise">- ◰ x</p>
       </p>
@@ -198,6 +198,6 @@ export default function Console(): JSX.Element {
         </FocusLock>
         <div ref={bottomRef} />
       </div>
-    </>
+    </div>
   );
 }
