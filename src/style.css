@@ -17,6 +17,21 @@
   width: 7vw;
 }
 
+.kanyeHeadImage:hover {
+  animation: jiggle 0.5s infinite linear;
+}
+@keyframes jiggle {
+  0% {
+    transform: rotate(0deg) scale(1.05, 1.05);
+  }
+  50% {
+    transform: rotate(2deg) scale(1.05, 1.05);
+  }
+  100% {
+    transform: rotate(-2deg) scale(1.05, 1.05);
+  }
+}
+
 html {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
@@ -88,7 +103,39 @@ iframe {
   border-radius: 12px;
 }
 
+.mainDiv {
+  display: flex;
+  flex-direction: row;
+}
+
+.mainText {
+  margin-top: 10%;
+  margin-left: 10%;
+  inline-size: 950px;
+  overflow: hidden;
+}
+
+.fullKanyePic {
+  float: right;
+  width: 750px;
+}
+
+.bioText {
+  margin-top: 10%;
+  inline-size: 850px;
+  overflow: hidden;
+  margin-left: 10%;
+}
+
+.bioContainer {
+  display: flex;
+  flex-direction: row;
+}
+
 .kanyeYoungImage {
   border-radius: 50%;
-  width: 17vw;
+  width: 470px;
+  float: right;
+  margin-left: 18%;
+  margin-top: 2%;
 }
